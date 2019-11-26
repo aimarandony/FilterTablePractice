@@ -1,0 +1,70 @@
+﻿@model IEnumerable<FilterTablePractice01.Models.Cliente>
+
+@{
+    ViewBag.Title = "ClientesporNombre";
+}
+
+<h2>Clientes</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm())
+{
+    <span>Ingresa el nombre del Cliente:</span>
+    <input type="text" name="nombre" value="@ViewBag.nombre"/>
+    <input type="submit" value="Consulta"/>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idcli)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nomcli)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.apecli)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.iddist)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_reg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idcli)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nomcli)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.apecli)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.iddist)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_reg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
