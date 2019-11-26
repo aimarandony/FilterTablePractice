@@ -42,6 +42,7 @@ SELECT * FROM CLIENTES WHERE nomcli LIKE @nombre + '%'
 GO
 
 USP_CLIENTES_NOMBRE 'A';
+GO
 
 CREATE PROC USP_CLIENTES_FECHA
 @fecha int
@@ -51,3 +52,14 @@ INNER JOIN DISTRITOS d ON c.iddist = d.iddist WHERE YEAR(c.fecha_reg) = @fecha;
 GO
 
 USP_CLIENTES_FECHA 2002;
+GO
+
+CREATE PROC USP_CLIENTES_NOMBRE_FECHA
+@nombre VARCHAR(50),
+@fecha INT
+AS
+SELECT c.idcli, c.nomcli, c.apecli, d.nomdist, c.fecha_reg, c.estado FROM CLIENTES c 
+INNER JOIN DISTRITOS d ON c.iddist = d.iddist WHERE YEAR(c.fecha_reg) = @fecha OR nomcli LIKE @nombre + '%';
+GO
+
+USP_CLIENTES_NOMBRE_FECHA 'a', 2000;
