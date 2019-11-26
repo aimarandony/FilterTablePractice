@@ -172,6 +172,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Cliente\ClientesporNombre.cshtml" />
     <Content Include="Views\Cliente\ClientesporFecha.cshtml" />
+    <Content Include="Views\Cliente\ClientesporNombreFecha.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

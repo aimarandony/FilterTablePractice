@@ -1,0 +1,74 @@
+﻿@model IEnumerable<FilterTablePractice01.Models.Cliente>
+
+@{
+                /**/
+
+                ViewBag.Title = "ClientesporNombreFecha";
+}
+
+<h2>Clientes por Nombre y Fecha</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm())
+{
+    <span>Ingresa el nombre del cliente:</span>
+    <input type="text" name="nombre" value="@ViewBag.nombre" />
+    <span>Ingresa el año de registro:</span>
+    <input type="text" name="fecha" value="@ViewBag.fecha" />
+    <input type="submit" value="Consulta" />
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idcli)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nomcli)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.apecli)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nomdist)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_reg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idcli)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomcli)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.apecli)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomdist)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_reg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>
